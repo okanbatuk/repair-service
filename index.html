@@ -13,7 +13,8 @@
         --service: #007bff;
         --hover: #ff9800;
         --black: #222;
-        --white: #f6f8fa;
+        --white: #f1f5f9;
+        --pure-white: #fff;
       }
       * {
         margin: 0;
@@ -22,7 +23,7 @@
         font-family: Arial, Helvetica, sans-serif;
       }
       body {
-        background: var(--white);
+        background: var(--pure-white);
         color: var(--black);
         line-height: 1.5;
         display: flex;
@@ -31,22 +32,20 @@
         overflow-x: hidden;
       }
 
-      /* Header */
       header {
         background: var(--primary-color);
-        border-bottom: 2px solid var(--nav-border);
         padding: 0.75rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
       header,
       header a,
-      header h1 {
+      header h1,
+      header h2 {
         color: var(--white);
       }
-      header img.logo {
-        height: 48px;
-        width: auto;
-        margin-right: 1rem;
-      }
+
       .header-inner {
         max-width: 1200px;
         margin: 0 auto;
@@ -54,6 +53,19 @@
         align-items: center;
         padding: 0 1rem;
       }
+
+      .header-inner a {
+        text-decoration: none;
+      }
+
+      .header-inner a h2 {
+        transition: color 0.2s;
+      }
+
+      .header-inner a:hover h2 {
+        color: var(--hover);
+      }
+
       nav {
         flex: 1;
         display: flex;
@@ -108,10 +120,10 @@
         display: block;
       }
 
-      /* Hero */
       .hero {
         background: var(--primary-color);
-        color: #fff;
+        border-bottom: 2px solid var(--nav-border);
+        color: var(--pure-white);
         padding: 3rem 1rem;
         text-align: center;
       }
@@ -136,10 +148,8 @@
         font-weight: 600;
       }
 
-      /* Neden Biz */
       .why-us {
         padding: 2.5rem 1rem;
-        background: #fff;
       }
       .why-inner {
         max-width: 1200px;
@@ -156,11 +166,32 @@
         color: var(--primary-color);
         margin-bottom: 0.5rem;
       }
+      .why-icon {
+        width: 48px;
+        height: 48px;
+        filter: invert(45%) sepia(90%) saturate(600%) hue-rotate(120deg)
+          brightness(100%) contrast(90%);
+      }
 
-      /* Çalışma & Çağrı */
       .call-info {
         padding: 2rem 1rem;
-        background: var(--white);
+        background: var(--pure-white);
+        position: relative;
+      }
+      .call-info::after {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 2px;
+        margin: 2.5rem auto 0 auto;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #ff9800 30%,
+          #ff9800 70%,
+          transparent
+        );
+        opacity: 0.55;
       }
       .call-inner {
         max-width: 1200px;
@@ -178,27 +209,19 @@
         color: var(--primary-color);
         margin-bottom: 0.5rem;
       }
-
-      /* Yorumlar */
-      .testimonials {
-        padding: 2.5rem 1rem;
-        background: #fff;
+      .btn-call-number a {
+        display: inline-block;
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s;
       }
-      .test-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-      .test-card {
-        background: #f1f5f9;
-        padding: 1.5rem;
-        border-radius: 8px;
-      }
-      .test-card .stars {
-        color: var(--hover);
-        margin-bottom: 0.5rem;
+      .btn-call-number a:hover {
+        color: var(--black);
+        background: var(--hover);
       }
 
       .services {
@@ -216,7 +239,9 @@
         padding: 1.5rem;
         display: flex;
         flex-direction: column;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
       }
       .card:hover {
         transform: translateY(-3px);
@@ -247,11 +272,51 @@
       }
 
       main {
+        position: relative;
         align-self: center;
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         flex: 1;
+      }
+      main h1 {
+        text-align: center;
+      }
+
+      main::after {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 2px;
+        margin: 2.5rem auto 0 auto;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #ff9800 30%,
+          #ff9800 70%,
+          transparent
+        );
+        opacity: 0.55;
+      }
+
+      .testimonials {
+        padding: 2.5rem 1rem;
+      }
+      .test-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .test-card {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+      .test-card .stars {
+        color: var(--hover);
+        margin-bottom: 0.5rem;
       }
 
       footer {
@@ -273,11 +338,7 @@
     <header>
       <div class="header-inner">
         <a href="/">
-          <img
-            src="/assets/logo.webp"
-            alt="Beyaz Eşya Servisi Logo"
-            class="logo"
-          />
+          <h2>Beyaz Eşya Servisi</h2>
         </a>
         <nav>
           <ul>
@@ -305,7 +366,6 @@
       </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
       <div class="hero-inner">
         <h2>7/24 Profesyonel Beyaz Eşya Servisi</h2>
@@ -314,70 +374,48 @@
       </div>
     </section>
 
-    <!-- Neden Biz -->
     <section class="why-us">
       <div class="why-inner">
         <div class="why-card">
+          <img src="/assets/people.svg" alt="Uzman Kadro" class="why-icon" />
           <h3>Uzman Kadro</h3>
           <p>10+ yıllık deneyimli teknisyenler</p>
         </div>
+
         <div class="why-card">
+          <img src="/assets/vehicle.svg" alt="Servis" class="why-icon" />
           <h3>Aynı Gün Servis</h3>
-          <p>İstanbul geneli 1 saatte kapınızda</p>
+          <p>1 saatte kapınızda</p>
         </div>
+
         <div class="why-card">
+          <img src="/assets/price.svg" alt="Uygun Fiyat" class="why-icon" />
           <h3>Uygun Fiyat</h3>
           <p>Şeffaf fiyat politikası, garantili işçilik</p>
         </div>
       </div>
     </section>
 
-    <!-- Çalışma & Çağrı -->
     <section class="call-info">
       <div class="call-inner">
         <div class="call-box">
+          <img src="/assets/time.svg" alt="Calisma Saatleri" class="why-icon" />
           <h3>Çalışma Saatleri</h3>
           <p>Hafta içi: 08:00 – 20:00<br />Hafta sonu: 09:00 – 18:00</p>
         </div>
         <div class="call-box">
+          <img src="/assets/call.svg" alt="Cagri Hatti" class="why-icon" />
           <h3>Çağrı Hattı</h3>
-          <p>
-            <a
-              href="tel:+905551234567"
-              style="color: var(--primary-color); font-weight: 600"
-              >0555 123 45 67</a
-            >
-          </p>
+          <div class="btn-call-number">
+            <a href="tel:+905555555555">0555 555 55 55</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Müşteri Yorumları -->
-    <section class="testimonials">
-      <div class="test-inner">
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Buzdolabım aynı gün tamir edildi. Çok memnun kaldım.”</p>
-          <strong>– Ayşe K.</strong>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Uygun fiyat, profesyonel ekip. Teşekkürler!”</p>
-          <strong>– Mehmet T.</strong>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Çamaşır makinem sessiz çalışıyor artık. Harika.”</p>
-          <strong>– Zeynep S.</strong>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hizmet Kartları -->
     <main>
       <h1>Hizmetlerimiz</h1>
       <section class="services">
-        <!-- 8 card aynı yapı -->
         <article class="card">
           <h3 class="card-title">Beyaz Eşya Servisi</h3>
           <p class="card-text">
@@ -446,6 +484,25 @@
       </section>
     </main>
 
+    <section class="testimonials">
+      <div class="test-inner">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Buzdolabım aynı gün tamir edildi. Çok memnun kaldım.”</p>
+          <strong>– Ayşe K.</strong>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Uygun fiyat, profesyonel ekip. Teşekkürler!”</p>
+          <strong>– Mehmet T.</strong>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Çamaşır makinem sessiz çalışıyor artık. Harika.”</p>
+          <strong>– Zeynep S.</strong>
+        </div>
+      </div>
+    </section>
     <footer>
       <div class="footer-inner">
         <p>
