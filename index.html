@@ -6,18 +6,15 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <title>Beyaz Eşya Servisi</title>
     <style>
-      /* Variables */
       :root {
         --primary-color: #1565c0;
         --nav-border: #0d47a1;
         --service-border: #e5e5e5;
         --service: #007bff;
-
         --hover: #ff9800;
         --black: #222;
         --white: #f6f8fa;
       }
-      /* Reset */
       * {
         margin: 0;
         padding: 0;
@@ -68,11 +65,10 @@
         align-items: center;
       }
       nav li {
-        position: relative;
         margin-left: 0;
       }
       nav a {
-        color: var(--white);
+        color: #fff;
         font-weight: 600;
         text-decoration: none;
         padding: 8px 12px;
@@ -81,7 +77,6 @@
       .dropdown-content a:hover {
         color: var(--hover);
       }
-
       nav li.sep {
         width: 1px;
         height: 28px;
@@ -89,7 +84,6 @@
         margin: 0 0.4rem;
         align-self: center;
       }
-
       .dropdown-content {
         display: none;
         position: absolute;
@@ -97,63 +91,169 @@
         border: 1px solid var(--nav-border);
         min-width: 220px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        z-index: 1;
         border-radius: 4px;
         margin-top: 0.25rem;
+        z-index: 1;
       }
       .dropdown-content a {
         padding: 0.75rem 1rem;
         display: block;
         font-size: 0.9rem;
         color: var(--white);
-        border-bottom: 1px solid #f1f1f1;
-      }
-      .dropdown-content a:last-child {
-        border-bottom: none;
       }
       .dropdown-content a:hover {
-        background: rgba(255, 152, 0, 0.25); /* yarı saydam turuncu */
-        color: var(--hover);
+        background: rgba(255, 152, 0, 0.25);
       }
       .dropdown:hover .dropdown-content {
         display: block;
       }
 
-      /* Main */
-      main {
-        align-self: center; /* flex item’ı ortalar */
-        width: 100%;
-        max-width: 960px;
+      /* Hero */
+      .hero {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .hero p {
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+      }
+      .hero-btn {
+        background: var(--hover);
+        color: var(--black);
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* Neden Biz */
+      .why-us {
+        padding: 2.5rem 1rem;
+        background: #fff;
+      }
+      .why-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .why-card {
+        padding: 1rem;
+      }
+      .why-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      /* Çalışma & Çağrı */
+      .call-info {
+        padding: 2rem 1rem;
+        background: var(--white);
+      }
+      .call-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-around;
+        text-align: center;
+      }
+      .call-box {
+        flex: 1 1 250px;
+      }
+      .call-box h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      /* Yorumlar */
+      .testimonials {
+        padding: 2.5rem 1rem;
+        background: #fff;
+      }
+      .test-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .test-card {
+        background: #f1f5f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+      .test-card .stars {
+        color: var(--hover);
+        margin-bottom: 0.5rem;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
         margin: 2rem auto;
         padding: 0 1rem;
+      }
+      .card {
+        background: var(--white);
+        border: 1px solid var(--service-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px var(--primary-color);
+        cursor: pointer;
+      }
+      .card-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+      .card-text {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        flex: 1;
+      }
+      .card-btn {
+        align-self: flex-start;
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.875rem;
+      }
+      .card-btn:hover {
+        background: var(--hover);
+      }
+
+      main {
+        align-self: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         flex: 1;
       }
 
-      h1 {
-        margin-bottom: 1rem;
-        font-size: 1.75rem;
-      }
-      main h1 {
-        text-align: center;
-      }
-      .services {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1rem;
-      }
-      .service {
-        background: var(--white);
-        border: 1px solid var(--service-border);
-        border-radius: 6px;
-        padding: 1rem;
-        font-weight: 600;
-        text-align: center;
-        transition: 0.2s;
-      }
-      .service:hover {
-        border-color: var(--service);
-        color: var(--service);
-      }
       footer {
         background: var(--primary-color);
         border-top: 2px solid var(--nav-border);
@@ -172,16 +272,16 @@
   <body>
     <header>
       <div class="header-inner">
-        <img
-          src="/assets/logo.webp"
-          alt="Beyaz Eşya Servisi Logo"
-          class="logo"
-        />
+        <a href="/">
+          <img
+            src="/assets/logo.webp"
+            alt="Beyaz Eşya Servisi Logo"
+            class="logo"
+          />
+        </a>
         <nav>
           <ul>
-            <li><a href="#anasayfa">Ana Sayfa</a></li>
-
-            <!-- Dropdown -->
+            <li><a href="/">Ana Sayfa</a></li>
             <li class="dropdown">
               <a href="#services">Hizmetler ▾</a>
               <div class="dropdown-content">
@@ -195,12 +295,9 @@
                 <a href="#tv">Televizyon</a>
               </div>
             </li>
-
             <li><a href="#contact">İletişim</a></li>
             <li><a href="#about">Hakkımızda</a></li>
-
             <li class="sep"></li>
-
             <li><a href="#privacy">Gizlilik</a></li>
             <li><a href="#kvkk">KVKK</a></li>
           </ul>
@@ -208,19 +305,147 @@
       </div>
     </header>
 
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h2>7/24 Profesyonel Beyaz Eşya Servisi</h2>
+        <p>Aynı gün onarım, uygun fiyat, uzman teknisyen kadrosu.</p>
+        <a href="tel:+905551234567" class="hero-btn">Hemen Ara</a>
+      </div>
+    </section>
+
+    <!-- Neden Biz -->
+    <section class="why-us">
+      <div class="why-inner">
+        <div class="why-card">
+          <h3>Uzman Kadro</h3>
+          <p>10+ yıllık deneyimli teknisyenler</p>
+        </div>
+        <div class="why-card">
+          <h3>Aynı Gün Servis</h3>
+          <p>İstanbul geneli 1 saatte kapınızda</p>
+        </div>
+        <div class="why-card">
+          <h3>Uygun Fiyat</h3>
+          <p>Şeffaf fiyat politikası, garantili işçilik</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Çalışma & Çağrı -->
+    <section class="call-info">
+      <div class="call-inner">
+        <div class="call-box">
+          <h3>Çalışma Saatleri</h3>
+          <p>Hafta içi: 08:00 – 20:00<br />Hafta sonu: 09:00 – 18:00</p>
+        </div>
+        <div class="call-box">
+          <h3>Çağrı Hattı</h3>
+          <p>
+            <a
+              href="tel:+905551234567"
+              style="color: var(--primary-color); font-weight: 600"
+              >0555 123 45 67</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Müşteri Yorumları -->
+    <section class="testimonials">
+      <div class="test-inner">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Buzdolabım aynı gün tamir edildi. Çok memnun kaldım.”</p>
+          <strong>– Ayşe K.</strong>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Uygun fiyat, profesyonel ekip. Teşekkürler!”</p>
+          <strong>– Mehmet T.</strong>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Çamaşır makinem sessiz çalışıyor artık. Harika.”</p>
+          <strong>– Zeynep S.</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hizmet Kartları -->
     <main>
       <h1>Hizmetlerimiz</h1>
       <section class="services">
-        <a href="#beyaz-esya" class="service">Beyaz Eşya Servisi</a>
-        <a href="#buzdolabi" class="service">Buzdolabı</a>
-        <a href="#camasir" class="service">Çamaşır Makinesi</a>
-        <a href="#bulasik" class="service">Bulaşık Makinesi</a>
-        <a href="#firin" class="service">Fırın</a>
-        <a href="#klima" class="service">Klima</a>
-        <a href="#kombi" class="service">Kombi</a>
-        <a href="#tv" class="service">Televizyon</a>
+        <!-- 8 card aynı yapı -->
+        <article class="card">
+          <h3 class="card-title">Beyaz Eşya Servisi</h3>
+          <p class="card-text">
+            Tüm marka ve modellerde kapsamlı arıza tespiti ve onarım hizmeti.
+          </p>
+          <a href="/services?service=beyaz+esya" class="card-btn"
+            >Devamını Oku</a
+          >
+        </article>
+        <article class="card">
+          <h3 class="card-title">Buzdolabı</h3>
+          <p class="card-text">
+            Soğutma sorunları, sesli çalışma ve termostat arızalarına hızlı
+            çözüm.
+          </p>
+          <a href="/services?service=buzdolabi" class="card-btn"
+            >Devamını Oku</a
+          >
+        </article>
+        <article class="card">
+          <h3 class="card-title">Çamaşır Makinesi</h3>
+          <p class="card-text">
+            Devirdaim, sızdırmazlık, motor ve sensör problemlerinde uzman
+            servis.
+          </p>
+          <a href="/services?service=camasir" class="card-btn">Devamını Oku</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Bulaşık Makinesi</h3>
+          <p class="card-text">
+            Kurutma hatası, deterjan dağılımı ve su kaçaklarına pratik müdahale.
+          </p>
+          <a href="/services?service=bulasik" class="card-btn">Devamını Oku</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Fırın</h3>
+          <p class="card-text">
+            Isıtma elemanı, fan motoru ve kumanda kartı arızaları için güvenilir
+            tamir.
+          </p>
+          <a href="/services?service=firin" class="card-btn">Devamını Oku</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Klima</h3>
+          <p class="card-text">
+            Gaz dolumu, filtre temizliği ve elektronik kart kontrolü.
+          </p>
+          <a href="/services?service=klima" class="card-btn">Devamını Oku</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Kombi</h3>
+          <p class="card-text">
+            Ateşleme problemi, petek ısınmaması ve arıza kodları için
+            profesyonel çözüm.
+          </p>
+          <a href="/services?service=kombi" class="card-btn">Devamını Oku</a>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Televizyon</h3>
+          <p class="card-text">
+            Ekran çizgisi, ses kaybı ve kumanda bağlantı sorunlarına hızlı
+            müdahale.
+          </p>
+          <a href="/services?service=tv" class="card-btn">Devamını Oku</a>
+        </article>
       </section>
     </main>
+
     <footer>
       <div class="footer-inner">
         <p>
