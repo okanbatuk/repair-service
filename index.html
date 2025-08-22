@@ -290,7 +290,6 @@
         font-size: 1.75rem;
         text-align: center;
       }
-
       main::after {
         content: "";
         display: block;
@@ -308,7 +307,23 @@
       }
 
       .testimonials {
+        position: relative;
         padding: 2.5rem 1rem;
+      }
+      .testimonials::after {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 2px;
+        margin: 2.5rem auto 0 auto;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #ff9800 30%,
+          #ff9800 70%,
+          transparent
+        );
+        opacity: 0.55;
       }
       .testimonials h2 {
         font-size: 1.75rem;
@@ -330,6 +345,60 @@
       .test-card .stars {
         color: var(--hover);
         margin-bottom: 0.5rem;
+      }
+
+      .faq {
+        padding-bottom: 2rem;
+        background: var(--pure-white);
+      }
+      .faq h2 {
+        font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .faq-inner {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      details[name="faq-accordion"] {
+        border: 1px solid var(--service-border);
+        border-radius: 6px;
+        margin-bottom: 0.75rem;
+        background: var(--pure-white);
+        transition: box-shadow 0.25s;
+      }
+
+      details[open] {
+        box-shadow: 0 2px 8px rgba(21, 101, 192, 0.25);
+      }
+
+      summary {
+        padding: 1rem 1.25rem;
+        font-weight: 600;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      summary::after {
+        content: "+";
+        font-size: 1.25rem;
+        transition: transform 0.2s;
+      }
+
+      details[open] summary::after {
+        transform: rotate(45deg);
+      }
+
+      details p {
+        padding: 0 1.25rem 1rem;
+        margin: 0;
+        line-height: 1.6;
+        color: var(--black);
       }
 
       footer {
@@ -370,7 +439,7 @@
               </div>
             </li>
             <li><a href="#contact">İletişim</a></li>
-            <li><a href="#about">Hakkımızda</a></li>
+            <li><a href="about.html">Hakkımızda</a></li>
             <li class="sep"></li>
             <li><a href="#privacy">Gizlilik</a></li>
             <li><a href="#kvkk">KVKK</a></li>
@@ -533,6 +602,107 @@
           <p>“Klima gazı bitmişti, doldurup soğutmayı yerine getirdiler.”</p>
           <strong>– Burak T.</strong>
         </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Çamaşır makinemdeki sızdırmazlık sorunu saniyede çözüldü.”</p>
+          <strong>– Deniz K.</strong>
+        </div>
+
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p>“Bulaşık makinem artık kurutuyor, harika hizmet!”</p>
+          <strong>– Serkan M.</strong>
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="faq">
+      <h2>Sıkça Sorulan Sorular</h2>
+      <div class="faq-inner">
+        <details name="faq-accordion">
+          <summary>Yetkili servis misiniz?</summary>
+          <p>
+            Hayır, yetkili servis değiliz. Garantisi bitmiş ya da yetkili servis
+            dışında hizmet almak isteyen kullanıcılar için bağımsız teknik
+            servis hizmeti veriyoruz.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Arıza için ne kadar ücret öderim?</summary>
+          <p>
+            Ücretlendirme, cihaz tipi, arızanın türü ve gereken yedek parçaya
+            göre değişir. Ücret bilgisini ücretsiz arıza tespitinden sonra net
+            olarak veriyoruz.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Aynı gün içinde servis gelir mi?</summary>
+          <p>
+            Adrese bağlı olarak 1-3 saat içinde ulaşmayı hedefliyoruz. Yoğun
+            saatlerde randevu sırası bir sonraki güne sarkabilir.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Parça değişiminde garanti veriyor musunuz?</summary>
+          <p>
+            Evet, kullanılan tüm yedek parçalar 1 yıl garantilidir. İşçilik ise
+            6 ay boyunca ücretsiz kontrol ve onarım garantisi kapsamındadır.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Hangi markaları tamir ediyorsunuz?</summary>
+          <p>
+            Arçelik, Beko, Bosch, Siemens, Vestel, Profilo, Samsung, LG,
+            Hotpoint, Indesit ve diğer tüm popüler markaların tamirini
+            yapıyoruz.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Çamaşır makinem su akıtıyor, ne yapmalıyım?</summary>
+          <p>
+            Öncelikle makineyi fişten çekin ve su vanasını kapatın. Daha sonra
+            bizi arayın, hortum, conta veya pompa kaynaklı sızıntıyı hızla
+            tespit edip onarıyoruz.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Buzdolabım soğutmuyor ama ses var, sebebi nedir?</summary>
+          <p>
+            Bu durum genellikle gaz eksikliği, fan arızası veya termostat
+            problemine işarettir. Servis teknisyenimiz 10 dakikalık kontrolle
+            kesin teşhisi koyar.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Çağrı ücreti veya çıkış ücreti alıyor musunuz?</summary>
+          <p>
+            Hayır, adresinize gelip arıza tespiti yapana kadar herhangi bir
+            ücret talep etmiyoruz. Sadece onay verdiğinizde işlem başlar.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Ödeme nasıl yapılıyor?</summary>
+          <p>
+            Nakit, kredi kartı veya banka kartı ile kapıda ödeme yapabilirsiniz.
+            Dilerseniz 3 taksite kadar vade imkânı da sunuyoruz.
+          </p>
+        </details>
+
+        <details name="faq-accordion">
+          <summary>Hafta sonu ve resmî tatillerde servis var mı?</summary>
+          <p>
+            Evet, Cumartesi 09:00-18:00, Pazar 10:00-16:00 arasında hizmet
+            veriyoruz. Resmî tatillerde ise acil çağrılar için 7/24
+            ulaşabilirsiniz.
+          </p>
+        </details>
       </div>
     </section>
     <footer>
