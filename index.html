@@ -10,12 +10,12 @@
         --primary-color: #1565c0;
         --nav-border: #0d47a1;
         --service-border: #e5e5e5;
-        --service: #007bff;
         --hover: #ff9800;
         --black: #222;
         --white: #f1f5f9;
         --pure-white: #fff;
       }
+
       * {
         margin: 0;
         padding: 0;
@@ -32,6 +32,29 @@
         overflow-x: hidden;
       }
 
+      .wrapper-1200 {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .section-divider::after {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 2px;
+        margin: 2.5rem auto 0;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--hover) 30%,
+          var(--hover) 70%,
+          transparent
+        );
+        opacity: 0.55;
+      }
+
+      /* ===== HEADER ===== */
       header {
         background: var(--primary-color);
         padding: 0.75rem 0;
@@ -41,60 +64,42 @@
       }
       header,
       header a,
-      header h1,
       header h2 {
         color: var(--white);
       }
-
       .header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
         display: flex;
         align-items: center;
-        padding: 0 1rem;
+        justify-content: space-between;
       }
-
       .header-inner a {
         text-decoration: none;
       }
-
-      .header-inner a h2 {
-        transition: color 0.2s;
-      }
-
       .header-inner a:hover h2 {
         color: var(--hover);
-      }
-
-      nav {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
       }
       nav ul {
         list-style: none;
         display: flex;
         align-items: center;
-      }
-      nav li {
-        margin-left: 0;
+        gap: 0.4rem;
       }
       nav a {
         color: #fff;
         font-weight: 600;
-        text-decoration: none;
         padding: 8px 12px;
+        text-decoration: none;
       }
-      nav a:hover,
-      .dropdown-content a:hover {
+      nav a:hover {
         color: var(--hover);
       }
       nav li.sep {
         width: 1px;
         height: 28px;
         background: var(--white);
-        margin: 0 0.4rem;
-        align-self: center;
+      }
+      .dropdown {
+        position: relative;
       }
       .dropdown-content {
         display: none;
@@ -120,16 +125,20 @@
         display: block;
       }
 
+      /* ===== MAIN ===== */
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* HERO */
       .hero {
         background: var(--primary-color);
         border-bottom: 2px solid var(--nav-border);
         color: var(--pure-white);
         padding: 3rem 1rem;
         text-align: center;
-      }
-      .hero-inner {
-        max-width: 1200px;
-        margin: 0 auto;
       }
       .hero h1 {
         font-size: 2rem;
@@ -144,21 +153,19 @@
         color: var(--black);
         padding: 0.75rem 1.5rem;
         border-radius: 4px;
-        text-decoration: none;
         font-weight: 600;
+        text-decoration: none;
       }
 
+      /* WHY-US */
       .why-us {
-        padding: 2.5rem 1rem;
+        padding: 2.5rem 1rem 0;
       }
       .why-us h2 {
-        font-size: 1.75rem;
         text-align: center;
-        margin-bottom: 2rem;
       }
+
       .why-inner {
-        max-width: 1200px;
-        margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 1.5rem;
@@ -179,29 +186,11 @@
           brightness(100%) contrast(90%);
       }
 
+      /* CALL-INFO */
       .call-info {
         padding: 2rem 1rem;
-        background: var(--pure-white);
-        position: relative;
-      }
-      .call-info::after {
-        content: "";
-        display: block;
-        width: 60%;
-        height: 2px;
-        margin: 2.5rem auto 0 auto;
-        background: linear-gradient(
-          to right,
-          transparent,
-          #ff9800 30%,
-          #ff9800 70%,
-          transparent
-        );
-        opacity: 0.55;
       }
       .call-inner {
-        max-width: 1200px;
-        margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
@@ -216,191 +205,150 @@
         color: var(--primary-color);
         margin-bottom: 0.5rem;
       }
-      .btn-call-number a {
+      .btn-fixed-call-number a {
         display: inline-block;
         background: var(--primary-color);
         color: var(--white);
         padding: 0.75rem 1.5rem;
         border-radius: 4px;
-        text-decoration: none;
         font-weight: 600;
         transition: background 0.2s;
       }
-      .btn-call-number a:hover {
-        color: var(--black);
+      .btn-fixed-call-number a:hover {
         background: var(--hover);
+        color: var(--black);
       }
 
+      /* SERVICES */
       .services {
+        padding: 0 1rem;
+      }
+      .services h2 {
+        font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .services-inner {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 1rem;
       }
-      .card {
+
+      .services a.card {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
         background: var(--white);
         border: 1px solid var(--service-border);
         border-radius: 8px;
         padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
         transition:
           transform 0.2s,
           box-shadow 0.2s;
       }
-      .card:hover {
+      .services a.card:hover {
         transform: translateY(-3px);
         box-shadow: 0 4px 12px var(--primary-color);
-        cursor: pointer;
       }
-      .card-title {
+
+      .services .card-title {
         font-size: 1.125rem;
-        margin-bottom: 0.5rem;
         color: var(--primary-color);
+        margin-bottom: 0.5rem;
       }
-      .card-text {
+      .services .card-text {
         font-size: 0.95rem;
         margin-bottom: 1rem;
         flex: 1;
       }
-      .card-btn {
+      .services .card-btn {
         align-self: flex-start;
         background: var(--primary-color);
         color: var(--white);
         padding: 0.5rem 1rem;
         border-radius: 4px;
-        text-decoration: none;
         font-size: 0.875rem;
+        cursor: pointer;
+        margin-top: auto;
       }
-      .card-btn:hover {
+      .services .card-btn:hover {
         background: var(--hover);
+        color: var(--black);
       }
 
-      main {
-        position: relative;
-        align-self: center;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        flex: 1;
+      /* COMMENTS */
+      .comments {
+        padding: 2.5rem 1rem 0;
       }
-      main h2 {
-        font-size: 1.75rem;
-        text-align: center;
-      }
-      main::after {
-        content: "";
-        display: block;
-        width: 60%;
-        height: 2px;
-        margin: 2.5rem auto 0 auto;
-        background: linear-gradient(
-          to right,
-          transparent,
-          #ff9800 30%,
-          #ff9800 70%,
-          transparent
-        );
-        opacity: 0.55;
-      }
-
-      .testimonials {
-        position: relative;
-        padding: 2.5rem 1rem;
-      }
-      .testimonials::after {
-        content: "";
-        display: block;
-        width: 60%;
-        height: 2px;
-        margin: 2.5rem auto 0 auto;
-        background: linear-gradient(
-          to right,
-          transparent,
-          #ff9800 30%,
-          #ff9800 70%,
-          transparent
-        );
-        opacity: 0.55;
-      }
-      .testimonials h2 {
+      .comments h2 {
         font-size: 1.75rem;
         text-align: center;
         margin-bottom: 2rem;
       }
-      .test-inner {
-        max-width: 1200px;
-        margin: 0 auto;
+      .comment-inner {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
       }
-      .test-card {
+      .comment-card {
         background: var(--white);
         padding: 1.5rem;
         border-radius: 8px;
       }
-      .test-card .stars {
+      .comment-card .stars {
         color: var(--hover);
         margin-bottom: 0.5rem;
       }
 
+      /* FAQ */
       .faq {
-        padding-bottom: 2rem;
-        background: var(--pure-white);
+        padding: 2.5rem 1rem 0;
       }
       .faq h2 {
         font-size: 1.75rem;
         text-align: center;
         margin-bottom: 2rem;
       }
-
       .faq-inner {
         max-width: 800px;
         margin: 0 auto;
       }
-
       details[name="faq-accordion"] {
         border: 1px solid var(--service-border);
         border-radius: 6px;
         margin-bottom: 0.75rem;
-        background: var(--pure-white);
+        background: var(--white);
         transition: box-shadow 0.25s;
       }
-
       details[open] {
         box-shadow: 0 2px 8px rgba(21, 101, 192, 0.25);
       }
-
       summary {
         padding: 1rem 1.25rem;
         font-weight: 600;
         cursor: pointer;
-        list-style: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color: var(--black);
       }
-
       summary::after {
         content: "+";
         font-size: 1.25rem;
         transition: transform 0.2s;
       }
-
       details[open] summary::after {
         transform: rotate(45deg);
       }
-
       details p {
         padding: 0 1.25rem 1rem;
         margin: 0;
         line-height: 1.6;
-        color: var(--black);
       }
 
+      /* FOOTER */
       footer {
         background: var(--primary-color);
         border-top: 2px solid var(--nav-border);
@@ -409,24 +357,99 @@
         font-size: 0.875rem;
         text-align: center;
       }
-      .footer-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
+
+      /* ================== FIXED CALL BUTTON ================== */
+      .fixed-call-float {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 2000;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--hover);
+        color: var(--black);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(255, 152, 0, 0.45);
+
+        font-size: 1rem;
+        animation: pulse 2s infinite;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        text-decoration: none;
+      }
+
+      .fixed-call-float:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 12px 32px rgba(255, 152, 0, 0.65);
+      }
+
+      .fixed-call-icon {
+        width: 32px;
+        height: 32px;
+        filter: invert(45%) sepia(90%) saturate(600%) hue-rotate(120deg)
+          brightness(100%) contrast(90%);
+      }
+
+      .fixed-call-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .fixed-call-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      .fixed-call-number {
+        font-size: 0.8rem;
+        opacity: 0.9;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .fixed-call-float {
+          bottom: 16px;
+          right: 16px;
+          padding: 0.6rem 0.8rem;
+        }
+        .call-icon {
+          width: 20px;
+          height: 20px;
+        }
+        .fixed-call-title {
+          font-size: 0.85rem;
+        }
+        .fixed-call-number {
+          font-size: 0.75rem;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="header-inner">
-        <a href="/">
-          <h2>Beyaz Eşya Servisi</h2>
-        </a>
+      <div class="header-inner wrapper-1200">
+        <a href="/"><h2>Beyaz Eşya Servisi</h2></a>
         <nav>
           <ul>
             <li><a href="/">Ana Sayfa</a></li>
             <li class="dropdown">
-              <a href="#services">Hizmetler ▾</a>
+              <a href="services.html">Hizmetler ▾</a>
               <div class="dropdown-content">
                 <a href="#beyaz-esya">Beyaz Eşya Servisi</a>
                 <a href="#buzdolabi">Buzdolabı</a>
@@ -438,281 +461,344 @@
                 <a href="#tv">Televizyon</a>
               </div>
             </li>
-            <li><a href="#contact">İletişim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
             <li><a href="about.html">Hakkımızda</a></li>
             <li class="sep"></li>
-            <li><a href="#privacy">Gizlilik</a></li>
-            <li><a href="#kvkk">KVKK</a></li>
+            <li><a href="privacy.html">Gizlilik</a></li>
+            <li><a href="kvkk.html">KVKK</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <section id="why-us" class="hero">
-      <div class="hero-inner">
-        <h1>7/24 Profesyonel Beyaz Eşya Servisi</h1>
-        <p>Aynı gün onarım, uygun fiyat, uzman teknisyen kadrosu.</p>
-        <a href="tel:+905551234567" class="hero-btn">Hemen Ara</a>
-      </div>
-    </section>
-
-    <section class="why-us">
-      <h2>Neden Biz?</h2>
-      <div class="why-inner">
-        <div class="why-card">
-          <img src="/assets/people.svg" alt="Uzman Kadro" class="why-icon" />
-          <h2>Uzman Kadro</h2>
-          <p>10+ yıllık deneyimli teknisyenler</p>
+    <main>
+      <section class="hero">
+        <div class="wrapper-1200">
+          <h1>7/24 Profesyonel Beyaz Eşya Servisi</h1>
+          <p>Aynı gün onarım, uygun fiyat, uzman teknisyen kadrosu.</p>
+          <a href="tel:+905555555555" class="hero-btn">Hemen Ara</a>
         </div>
+      </section>
 
-        <div class="why-card">
-          <img src="/assets/vehicle.svg" alt="Servis" class="why-icon" />
-          <h2>Aynı Gün Servis</h2>
-          <p>1 saatte kapınızda</p>
-        </div>
-
-        <div class="why-card">
-          <img src="/assets/price.svg" alt="Uygun Fiyat" class="why-icon" />
-          <h2>Uygun Fiyat</h2>
-          <p>Şeffaf fiyat politikası, garantili işçilik</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="call-info">
-      <div class="call-inner">
-        <div class="call-box">
-          <img src="/assets/time.svg" alt="Calisma Saatleri" class="why-icon" />
-          <h2>Çalışma Saatleri</h2>
-          <p>Hafta içi: 08:00 – 20:00<br />Hafta sonu: 09:00 – 18:00</p>
-        </div>
-        <div class="call-box">
-          <img src="/assets/call.svg" alt="Cagri Hatti" class="why-icon" />
-          <h2>Çağrı Hattı</h2>
-          <div class="btn-call-number">
-            <a href="tel:+905555555555">0555 555 55 55</a>
+      <section class="why-us">
+        <div class="wrapper-1200">
+          <h2>Neden Biz?</h2>
+          <div class="why-inner">
+            <div class="why-card">
+              <img
+                src="/assets/people.svg"
+                alt="Uzman Kadro"
+                class="why-icon"
+              />
+              <h2>Uzman Kadro</h2>
+              <p>10+ yıllık deneyimli teknisyenler</p>
+            </div>
+            <div class="why-card">
+              <img src="/assets/vehicle.svg" alt="Servis" class="why-icon" />
+              <h2>Aynı Gün Servis</h2>
+              <p>1 saatte kapınızda</p>
+            </div>
+            <div class="why-card">
+              <img src="/assets/price.svg" alt="Uygun Fiyat" class="why-icon" />
+              <h2>Uygun Fiyat</h2>
+              <p>Şeffaf fiyat politikası, garantili işçilik</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <main id="services">
-      <h2>Hizmetlerimiz</h2>
-      <section class="services">
-        <article class="card">
-          <h3 class="card-title">Beyaz Eşya Servisi</h3>
-          <p class="card-text">
-            Tüm marka ve modellerde kapsamlı arıza tespiti ve onarım hizmeti.
-          </p>
-          <a href="/services?service=beyaz+esya" class="card-btn"
-            >Devamını Oku</a
-          >
-        </article>
-        <article class="card">
-          <h3 class="card-title">Buzdolabı</h3>
-          <p class="card-text">
-            Soğutma sorunları, sesli çalışma ve termostat arızalarına hızlı
-            çözüm.
-          </p>
-          <a href="/services?service=buzdolabi" class="card-btn"
-            >Devamını Oku</a
-          >
-        </article>
-        <article class="card">
-          <h3 class="card-title">Çamaşır Makinesi</h3>
-          <p class="card-text">
-            Devirdaim, sızdırmazlık, motor ve sensör problemlerinde uzman
-            servis.
-          </p>
-          <a href="/services?service=camasir" class="card-btn">Devamını Oku</a>
-        </article>
-        <article class="card">
-          <h3 class="card-title">Bulaşık Makinesi</h3>
-          <p class="card-text">
-            Kurutma hatası, deterjan dağılımı ve su kaçaklarına pratik müdahale.
-          </p>
-          <a href="/services?service=bulasik" class="card-btn">Devamını Oku</a>
-        </article>
-        <article class="card">
-          <h3 class="card-title">Fırın</h3>
-          <p class="card-text">
-            Isıtma elemanı, fan motoru ve kumanda kartı arızaları için güvenilir
-            tamir.
-          </p>
-          <a href="/services?service=firin" class="card-btn">Devamını Oku</a>
-        </article>
-        <article class="card">
-          <h3 class="card-title">Klima</h3>
-          <p class="card-text">
-            Gaz dolumu, filtre temizliği ve elektronik kart kontrolü.
-          </p>
-          <a href="/services?service=klima" class="card-btn">Devamını Oku</a>
-        </article>
-        <article class="card">
-          <h3 class="card-title">Kombi</h3>
-          <p class="card-text">
-            Ateşleme problemi, petek ısınmaması ve arıza kodları için
-            profesyonel çözüm.
-          </p>
-          <a href="/services?service=kombi" class="card-btn">Devamını Oku</a>
-        </article>
-        <article class="card">
-          <h3 class="card-title">Televizyon</h3>
-          <p class="card-text">
-            Ekran çizgisi, ses kaybı ve kumanda bağlantı sorunlarına hızlı
-            müdahale.
-          </p>
-          <a href="/services?service=tv" class="card-btn">Devamını Oku</a>
-        </article>
+      <section class="call-info section-divider">
+        <div class="wrapper-1200">
+          <div class="call-inner">
+            <div class="call-box">
+              <img
+                src="/assets/time.svg"
+                alt="Çalışma Saatleri"
+                class="why-icon"
+              />
+              <h2>Çalışma Saatleri</h2>
+              <p>Hafta içi: 08:00 – 20:00<br />Hafta sonu: 09:00 – 18:00</p>
+            </div>
+            <div class="call-box">
+              <img src="/assets/call.svg" alt="Çağrı Hattı" class="why-icon" />
+              <h2>Çağrı Hattı</h2>
+              <div class="btn-fixed-call-number">
+                <a href="tel:+905555555555">0555 555 55 55</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services section-divider" id="services">
+        <div class="wrapper-1200">
+          <h2>Hizmetlerimiz</h2>
+          <div class="services-inner">
+            <article>
+              <a href="/services?service=beyaz+esya" class="card">
+                <h3 class="card-title">Beyaz Eşya Servisi</h3>
+                <p class="card-text">
+                  Tüm marka ve modellerde kapsamlı arıza tespiti ve onarım
+                  hizmeti.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=beyaz+esya#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=buzdolabi" class="card">
+                <h3 class="card-title">Buzdolabı</h3>
+                <p class="card-text">
+                  Soğutma sorunları, sesli çalışma ve termostat arızalarına
+                  hızlı çözüm.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=buzdolabi#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=camasir" class="card">
+                <h3 class="card-title">Çamaşır Makinesi</h3>
+                <p class="card-text">
+                  Devirdaim, sızdırmazlık, motor ve sensör problemlerinde uzman
+                  servis.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=camasir#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=bulasik" class="card">
+                <h3 class="card-title">Bulaşık Makinesi</h3>
+                <p class="card-text">
+                  Kurutma hatası, deterjan dağılımı ve su kaçaklarına pratik
+                  müdahale.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=bulasik#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=firin" class="card">
+                <h3 class="card-title">Fırın</h3>
+                <p class="card-text">
+                  Isıtma elemanı, fan motoru ve kumanda kartı arızaları için
+                  güvenilir tamir.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=firin#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=klima" class="card">
+                <h3 class="card-title">Klima</h3>
+                <p class="card-text">
+                  Gaz dolumu, filtre temizliği ve elektronik kart kontrolü.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=klima#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=kombi" class="card">
+                <h3 class="card-title">Kombi</h3>
+                <p class="card-text">
+                  Ateşleme problemi, petek ısınmaması ve arıza kodları için
+                  profesyonel çözüm.
+                </p>
+                <span
+                  class="card-btn"
+                  data-deep="/services?service=kombi#article"
+                >
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+
+            <article>
+              <a href="/services?service=tv" class="card">
+                <h3 class="card-title">Televizyon</h3>
+                <p class="card-text">
+                  Ekran çizgisi, ses kaybı ve kumanda bağlantı sorunlarına hızlı
+                  müdahale.
+                </p>
+                <span class="card-btn" data-deep="/services?service=tv#article">
+                  Devamını Oku
+                </span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="comments section-divider" id="comments">
+        <div class="wrapper-1200">
+          <h2>Müşteri Yorumları</h2>
+          <div class="comment-inner">
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Buzdolabım aynı gün tamir edildi. Çok memnun kaldım.”</p>
+              <strong>– Ayşe K.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Uygun fiyat, profesyonel ekip. Teşekkürler!”</p>
+              <strong>– Mehmet T.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Çamaşır makinem sessiz çalışıyor artık. Harika.”</p>
+              <strong>– Zeynep S.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Kombi arızamı 1 saatte çözdüler. Çok memnun kaldım.”</p>
+              <strong>– Ali Y.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Fırınımın fanı ses yapıyordu, şimdi sessiz çalışıyor.”</p>
+              <strong>– Elif G.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Klima gazı bitmişti, doldurup soğutmayı yerine getirdiler.”
+              </p>
+              <strong>– Burak T.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Çamaşır makinemdeki sızdırmazlık sorunu saniyede çözüldü.”</p>
+              <strong>– Deniz K.</strong>
+            </div>
+            <div class="comment-card">
+              <div class="stars">★★★★★</div>
+              <p>“Bulaşık makinem artık kurutuyor, harika hizmet!”</p>
+              <strong>– Serkan M.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq section-divider" id="faq">
+        <h2>Sıkça Sorulan Sorular</h2>
+        <div class="faq-inner">
+          <details name="faq-accordion">
+            <summary>Yetkili servis misiniz?</summary>
+            <p>
+              Hayır, yetkili servis değiliz. Garantisi bitmiş cihazlar için
+              bağımsız teknik servis hizmeti veriyoruz.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Arıza için ne kadar ücret öderim?</summary>
+            <p>
+              Cihaz tipi, arıza türü ve yedek parçaya göre değişir. Ücretsiz
+              tespit sonrası net fiyat verilir.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Aynı gün içinde servis gelir mi?</summary>
+            <p>
+              Adrese bağlı olarak 1-3 saat hedefliyoruz. Yoğunluğa göre ertesi
+              güne sarkabilir.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Parça değişiminde garanti var mı?</summary>
+            <p>Yedek parçalar 1 yıl, işçilik 6 ay garantilidir.</p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Hangi markaları tamir ediyorsunuz?</summary>
+            <p>
+              Arçelik, Beko, Bosch, Siemens, Vestel, Profilo, Samsung, LG ve tüm
+              popüler markalar.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Çamaşır makinem su akıtıyor, ne yapmalıyım?</summary>
+            <p>
+              Makineyi fişten çekin ve bizi arayın; hortum, conta veya pompa
+              kaynaklı sızıntıyı kısa sürede çözeriz.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Buzdolabım soğutmuyor ama ses var, sebebi nedir?</summary>
+            <p>
+              Gaz eksikliği, fan veya termostat arızası olabilir; 10 dakikalık
+              kontrolle teşhis konur.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Çağrı ücreti veya çıkış ücreti alıyor musunuz?</summary>
+            <p>
+              Hayır, arıza tespitine kadar ücret yoktur. Onay verirseniz işlem
+              başlar.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Ödeme nasıl yapılıyor?</summary>
+            <p>
+              Nakit, kredi kartı veya banka kartı ile kapıda ödeme; 3 taksit
+              imkânı.
+            </p>
+          </details>
+          <details name="faq-accordion">
+            <summary>Hafta sonu ve resmî tatillerde servis var mı?</summary>
+            <p>
+              Cumartesi 09-18, Pazar 10-16 arası hizmet; resmî tatillerde acil
+              çağrılar için 7/24 ulaşılabilir.
+            </p>
+          </details>
+        </div>
       </section>
     </main>
 
-    <section id="comments" class="testimonials">
-      <h2>Yorumlar</h2>
-      <div class="test-inner">
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Buzdolabım aynı gün tamir edildi. Çok memnun kaldım.”</p>
-          <strong>– Ayşe K.</strong>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Uygun fiyat, profesyonel ekip. Teşekkürler!”</p>
-          <strong>– Mehmet T.</strong>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Çamaşır makinem sessiz çalışıyor artık. Harika.”</p>
-          <strong>– Zeynep S.</strong>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Kombi arızamı 1 saatte çözdüler. Çok memnun kaldım.”</p>
-          <strong>– Ali Y.</strong>
-        </div>
-
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Fırınımın fanı ses yapıyordu, şimdi sessiz çalışıyor.”</p>
-          <strong>– Elif G.</strong>
-        </div>
-
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Klima gazı bitmişti, doldurup soğutmayı yerine getirdiler.”</p>
-          <strong>– Burak T.</strong>
-        </div>
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Çamaşır makinemdeki sızdırmazlık sorunu saniyede çözüldü.”</p>
-          <strong>– Deniz K.</strong>
-        </div>
-
-        <div class="test-card">
-          <div class="stars">★★★★★</div>
-          <p>“Bulaşık makinem artık kurutuyor, harika hizmet!”</p>
-          <strong>– Serkan M.</strong>
-        </div>
-      </div>
-    </section>
-    <section id="faq" class="faq">
-      <h2>Sıkça Sorulan Sorular</h2>
-      <div class="faq-inner">
-        <details name="faq-accordion">
-          <summary>Yetkili servis misiniz?</summary>
-          <p>
-            Hayır, yetkili servis değiliz. Garantisi bitmiş ya da yetkili servis
-            dışında hizmet almak isteyen kullanıcılar için bağımsız teknik
-            servis hizmeti veriyoruz.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Arıza için ne kadar ücret öderim?</summary>
-          <p>
-            Ücretlendirme, cihaz tipi, arızanın türü ve gereken yedek parçaya
-            göre değişir. Ücret bilgisini ücretsiz arıza tespitinden sonra net
-            olarak veriyoruz.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Aynı gün içinde servis gelir mi?</summary>
-          <p>
-            Adrese bağlı olarak 1-3 saat içinde ulaşmayı hedefliyoruz. Yoğun
-            saatlerde randevu sırası bir sonraki güne sarkabilir.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Parça değişiminde garanti veriyor musunuz?</summary>
-          <p>
-            Evet, kullanılan tüm yedek parçalar 1 yıl garantilidir. İşçilik ise
-            6 ay boyunca ücretsiz kontrol ve onarım garantisi kapsamındadır.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Hangi markaları tamir ediyorsunuz?</summary>
-          <p>
-            Arçelik, Beko, Bosch, Siemens, Vestel, Profilo, Samsung, LG,
-            Hotpoint, Indesit ve diğer tüm popüler markaların tamirini
-            yapıyoruz.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Çamaşır makinem su akıtıyor, ne yapmalıyım?</summary>
-          <p>
-            Öncelikle makineyi fişten çekin ve su vanasını kapatın. Daha sonra
-            bizi arayın, hortum, conta veya pompa kaynaklı sızıntıyı hızla
-            tespit edip onarıyoruz.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Buzdolabım soğutmuyor ama ses var, sebebi nedir?</summary>
-          <p>
-            Bu durum genellikle gaz eksikliği, fan arızası veya termostat
-            problemine işarettir. Servis teknisyenimiz 10 dakikalık kontrolle
-            kesin teşhisi koyar.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Çağrı ücreti veya çıkış ücreti alıyor musunuz?</summary>
-          <p>
-            Hayır, adresinize gelip arıza tespiti yapana kadar herhangi bir
-            ücret talep etmiyoruz. Sadece onay verdiğinizde işlem başlar.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Ödeme nasıl yapılıyor?</summary>
-          <p>
-            Nakit, kredi kartı veya banka kartı ile kapıda ödeme yapabilirsiniz.
-            Dilerseniz 3 taksite kadar vade imkânı da sunuyoruz.
-          </p>
-        </details>
-
-        <details name="faq-accordion">
-          <summary>Hafta sonu ve resmî tatillerde servis var mı?</summary>
-          <p>
-            Evet, Cumartesi 09:00-18:00, Pazar 10:00-16:00 arasında hizmet
-            veriyoruz. Resmî tatillerde ise acil çağrılar için 7/24
-            ulaşabilirsiniz.
-          </p>
-        </details>
-      </div>
-    </section>
     <footer>
       <div class="footer-inner">
         <p>
-          Yetkili servis değildir. Sadece garantisi olmayan cihazlar için tamir,
-          bakım, arıza vb. hizmetler verilmektedir.<br />
-          &copy; 2025 Beyaz Eşya Servisi. Tüm hakları saklıdır.
+          Yetkili&nbsp;servis&nbsp;değildir.&nbsp;Sadece&nbsp;garantisi&nbsp;olmayan&nbsp;cihazlar&nbsp;için&nbsp;tamir,&nbsp;bakım,&nbsp;arıza&nbsp;vb.&nbsp;hizmetler&nbsp;verilmektedir.<br />&copy;2025&nbsp;Beyaz&nbsp;Eşya&nbsp;Servisi.&nbsp;Tüm&nbsp;hakları&nbsp;saklıdır.
         </p>
       </div>
     </footer>
+    <a href="tel:+905555555555" class="fixed-call-float">
+      <img src="/assets/call.svg" alt="Çağrı" class="fixed-call-icon" />
+      <div class="fixed-call-text">
+        <span class="fixed-call-title">Bizi&nbsp;Arayın</span>
+        <span class="fixed-call-number">0555 555 55 55</span>
+      </div>
+    </a>
   </body>
 </html>

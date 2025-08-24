@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <title>Beyaz Eşya Servisi</title>
+    <style>
+      :root {
+        --primary-color: #1565c0;
+        --nav-border: #0d47a1;
+        --service-border: #e5e5e5;
+        --hover: #ff9800;
+        --black: #222;
+        --white: #f1f5f9;
+        --pure-white: #fff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background: var(--pure-white);
+        color: var(--black);
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .wrapper-1200 {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .section-divider::after {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 2px;
+        margin: 2.5rem auto 0;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--hover) 30%,
+          var(--hover) 70%,
+          transparent
+        );
+        opacity: 0.55;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        background: var(--primary-color);
+        padding: 0.75rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      header,
+      header a,
+      header h2 {
+        color: var(--white);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-inner a {
+        text-decoration: none;
+      }
+      .header-inner a:hover h2 {
+        color: var(--hover);
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      nav a {
+        color: #fff;
+        font-weight: 600;
+        padding: 8px 12px;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: var(--hover);
+      }
+      nav li.sep {
+        width: 1px;
+        height: 28px;
+        background: var(--white);
+      }
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: var(--primary-color);
+        border: 1px solid var(--nav-border);
+        min-width: 220px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        margin-top: 0.25rem;
+        z-index: 1;
+      }
+      .dropdown-content a {
+        padding: 0.75rem 1rem;
+        display: block;
+        font-size: 0.9rem;
+        color: var(--white);
+      }
+      .dropdown-content a:hover {
+        background: rgba(255, 152, 0, 0.25);
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* ===== MAIN ===== */
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--primary-color);
+        border-top: 2px solid var(--nav-border);
+        padding: 1.5rem 0;
+        color: var(--white);
+        font-size: 0.875rem;
+        text-align: center;
+      }
+
+      /* ================== FIXED CALL BUTTON ================== */
+      .fixed-call-float {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 2000;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--hover);
+        color: var(--black);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(255, 152, 0, 0.45);
+
+        font-size: 1rem;
+        animation: pulse 2s infinite;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        text-decoration: none;
+      }
+
+      .fixed-call-float:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 12px 32px rgba(255, 152, 0, 0.65);
+      }
+
+      .fixed-call-icon {
+        width: 32px;
+        height: 32px;
+        filter: invert(45%) sepia(90%) saturate(600%) hue-rotate(120deg)
+          brightness(100%) contrast(90%);
+      }
+
+      .fixed-call-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .fixed-call-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      .fixed-call-number {
+        font-size: 0.8rem;
+        opacity: 0.9;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .fixed-call-float {
+          bottom: 16px;
+          right: 16px;
+          padding: 0.6rem 0.8rem;
+        }
+        .call-icon {
+          width: 20px;
+          height: 20px;
+        }
+        .fixed-call-title {
+          font-size: 0.85rem;
+        }
+        .fixed-call-number {
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner wrapper-1200">
+        <a href="/">
+          <h2>Beyaz Eşya Servisi</h2>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/">Ana Sayfa</a></li>
+            <li class="dropdown">
+              <a href="services.html">Hizmetler ▾</a>
+              <div class="dropdown-content">
+                <a href="#beyaz-esya">Beyaz Eşya Servisi</a>
+                <a href="#buzdolabi">Buzdolabı</a>
+                <a href="#camasir">Çamaşır Makinesi</a>
+                <a href="#bulasik">Bulaşık Makinesi</a>
+                <a href="#firin">Fırın</a>
+                <a href="#klima">Klima</a>
+                <a href="#kombi">Kombi</a>
+                <a href="#tv">Televizyon</a>
+              </div>
+            </li>
+            <li><a href="contact.html">İletişim</a></li>
+            <li><a href="about.html">Hakkımızda</a></li>
+            <li class="sep"></li>
+            <li><a href="privacy.html">Gizlilik</a></li>
+            <li><a href="kvkk.html">KVKK</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="services"></main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>
+          Yetkili servis değildir. Sadece garantisi olmayan cihazlar için tamir,
+          bakım, arıza vb. hizmetler verilmektedir.<br />
+          &copy; 2025 Beyaz Eşya Servisi. Tüm hakları saklıdır.
+        </p>
+      </div>
+    </footer>
+    <a href="tel:+905555555555" class="fixed-call-float">
+      <img src="/assets/call.svg" alt="Çağrı" class="fixed-call-icon" />
+      <div class="fixed-call-text">
+        <span class="fixed-call-title">Bizi&nbsp;Arayın</span>
+        <span class="fixed-call-number">0555 555 55 55</span>
+      </div>
+    </a>
+  </body>
+</html>
