@@ -7,11 +7,12 @@
     <title>Beyaz Eşya Servisi</title>
     <style>
       :root {
-        --primary-color: #1565c0;
+        --primary: #1565c0;
         --nav-border: #0d47a1;
         --service-border: #e5e5e5;
         --hover: #ff9800;
         --black: #222;
+        --blue: #0000ee;
         --white: #f1f5f9;
         --pure-white: #fff;
       }
@@ -30,6 +31,12 @@
         flex-direction: column;
         min-height: 100vh;
         overflow-x: hidden;
+      }
+
+      .wrapper-800 {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
       }
 
       .wrapper-1200 {
@@ -56,7 +63,7 @@
 
       /* ===== HEADER ===== */
       header {
-        background: var(--primary-color);
+        background: var(--primary);
         padding: 0.75rem 0;
         position: sticky;
         top: 0;
@@ -104,7 +111,7 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        background: var(--primary-color);
+        background: var(--primary);
         border: 1px solid var(--nav-border);
         min-width: 220px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -131,9 +138,27 @@
         display: flex;
         flex-direction: column;
       }
+      main h1 {
+        color: var(--primary);
+        text-align: center;
+        padding: 1rem auto;
+      }
+      main h2 {
+        color: var(--primary);
+      }
+      main a {
+        font-style: italic;
+        color: var(--primary);
+      }
+      main a:hover {
+        background-color: var(--hover);
+      }
+      main a:visited {
+        color: var(--primary);
+      }
 
       footer {
-        background: var(--primary-color);
+        background: var(--primary);
         border-top: 2px solid var(--nav-border);
         padding: 1.5rem 0;
         color: var(--white);
@@ -261,7 +286,222 @@
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <div class="wrapper-800" style="padding: 2rem 1rem">
+        <h1>KVKK Aydınlatma Metni</h1>
+        <article
+          class="content-article"
+          style="
+            max-width: 100%;
+            padding-top: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+          "
+        >
+          <p>
+            İşbu Aydınlatma Metni, 6698 sayılı Kişisel Verilerin Korunması
+            Kanunu’nun (“KVKK”) 10. maddesi uyarınca,
+            <strong>Beyaz Eşya Servisi</strong> (“Veri Sorumlusu”) tarafından,
+            kişisel verilerinizin işlenmesine ilişkin olarak aydınlatılmanız
+            amacıyla hazırlanmıştır.
+          </p>
+
+          <h2>1. Veri Sorumlusu</h2>
+          <p>
+            KVKK uyarınca, kişisel verileriniz; veri sorumlusu olarak
+            <strong>Beyaz Eşya Servisi</strong> tarafından aşağıda açıklanan
+            kapsamda işlenebilecektir.
+          </p>
+
+          <h2>2. Kişisel Verilerin İşlenme Amacı</h2>
+          <p>
+            Kişisel verileriniz, KVKK’nın 5. ve 6. maddelerinde belirtilen
+            kişisel veri işleme şartları ve amaçları dahilinde, aşağıdaki
+            amaçlar doğrultusunda işlenebilecektir:
+          </p>
+          <ul>
+            <li>
+              Hizmetlerimizin sunulması ve servis taleplerinin yerine
+              getirilmesi,
+            </li>
+            <li>
+              Randevu oluşturulması, takibi ve müşteri ilişkilerinin
+              yürütülmesi,
+            </li>
+            <li>
+              İletişim, faturalama ve muhasebe faaliyetlerinin yürütülmesi,
+            </li>
+            <li>
+              Yasal yükümlülüklerin yerine getirilmesi ve yetkili makamlara
+              bilgi verilmesi,
+            </li>
+            <li>
+              Talep ve şikâyetlerin değerlendirilmesi ve çözüme kavuşturulması,
+            </li>
+            <li>
+              Kampanya veya bilgilendirme mesajlarının gönderilmesi (yalnızca
+              açık rıza varsa),
+            </li>
+            <li>İş sağlığı ve güvenliği önlemlerinin alınması,</li>
+            <li>
+              İş süreçlerinin iyileştirilmesi, kalite kontrol ve iç denetim
+              faaliyetlerinin yürütülmesi.
+            </li>
+          </ul>
+
+          <h2>3. İşlenen Kişisel Veri Kategorileri</h2>
+          <p>
+            Veri Sorumlusu tarafından, aşağıdaki kişisel veri kategorileriniz
+            işlenmektedir:
+          </p>
+          <ul>
+            <li>
+              <strong>İletişim Bilgileri:</strong> Ad-soyad, telefon numarası,
+              e-posta adresi, ikamet adresi, fatura adresi.
+            </li>
+            <li>
+              <strong>Müşteri İşlem Bilgileri:</strong> Talep edilen hizmet,
+              cihaz markası-modeli, seri numarası, arıza açıklaması, randevu
+              tarihi-saati, servis formu numarası.
+            </li>
+            <li>
+              <strong>Finansal Bilgiler:</strong> Ödeme dekontu, fatura
+              bilgileri, vergi numarası (kurumsal müşteriler için).
+            </li>
+            <li>
+              <strong>Görsel ve/veya İşitsel Kayıtlar:</strong> Arıza tespiti
+              sırasında alınan fotoğraf veya video kayıtları (yalnızca teknik
+              gereklilik varsa).
+            </li>
+            <li>
+              <strong>Pazarlama Bilgileri:</strong> Kampanya veya anket katılım
+              tercihleri (açık rıza ile).
+            </li>
+          </ul>
+
+          <h2>4. Kişisel Verilerin Aktarılması</h2>
+          <p>
+            Kişisel verileriniz, yukarıda belirtilen amaçlarla, KVKK’nın 8. ve
+            9. maddelerinde belirtilen şartlar çerçevesinde, aşağıdaki
+            taraflarla paylaşılabilecektir:
+          </p>
+          <ul>
+            <li>
+              Yetkili teknik servis personelimiz ve iş ortağımız yedek parça
+              tedarikçileri,
+            </li>
+            <li>Fatura düzenleme ve muhasebe hizmeti sağlayan firmalar,</li>
+            <li>İletişim platformu (SMS/e-posta) sağlayıcıları,</li>
+            <li>
+              Yetkili kamu kurum ve kuruluşları (mahkeme, icra, bakanlıklar
+              vs.),
+            </li>
+            <li>
+              Denetim veya danışmanlık hizmeti aldığımız üçüncü kişiler (sır
+              saklama sözleşmesi kapsamında).
+            </li>
+          </ul>
+
+          <h2>5. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi</h2>
+          <p>
+            Kişisel verileriniz; çağrı merkezimiz, internet sitemizdeki iletişim
+            formu, WhatsApp hattı, yüz yüze görüşmeler, e-posta veya fiziksel
+            servis formları yoluyla toplanmaktadır. Bu veriler, aşağıdaki hukuki
+            sebeplere dayalı olarak işlenmektedir:
+          </p>
+          <ul>
+            <li>
+              <strong>Sözleşme:</strong> Servis hizmetini yerine getirmemiz için
+              zorunludur.
+            </li>
+            <li>
+              <strong>Hukuki Yükümlülük:</strong> Vergi mevzuatı, tüketici
+              mevzuatı vb. kanunlara uyum.
+            </li>
+            <li>
+              <strong>Meşru Menfaat:</strong> Müşteri memnuniyetinin
+              artırılması, dolandırıcılığın önlenmesi.
+            </li>
+            <li>
+              <strong>Açık Rıza:</strong> E-bülten, kampanya veya anket
+              gönderimleri.
+            </li>
+          </ul>
+
+          <h2>6. Verilerin Saklanmaması ve Anında İmha İlkesi</h2>
+          <p>
+            KVKK kapsamında toplanan hiçbir kişisel veri, ne fiziksel ne de
+            dijital ortamda saklanmayacak; işlendikleri anda kalıcı olarak ve
+            geri getirilemez biçimde imha edilecektir. Bu kural, tüm yedek
+            kopyalar ve log kayıtları için de geçerlidir.
+          </p>
+
+          <h2>7. İlgili Kişinin Hakları</h2>
+          <p>
+            KVKK’nın 11. maddesi uyarınca sahip olduğunuz haklarınızı kullanmak
+            için bizimle iletişime geçebilirsiniz. Haklarınız şunlardır:
+          </p>
+          <ul>
+            <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
+            <li>Verileriniz işlenmişse buna ilişkin bilgi talep etme,</li>
+            <li>
+              İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını
+              öğrenme,
+            </li>
+            <li>
+              Yurt içinde veya yurt dışında verilerin aktarıldığı üçüncü
+              kişileri bilme,
+            </li>
+            <li>Eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme,</li>
+            <li>
+              KVKK’nın 7. maddesinde öngörülen şartlar çerçevesinde verilerin
+              silinmesini veya yok edilmesini isteme,
+            </li>
+            <li>
+              Veri düzeltme, silme veya yok etme işlemlerinin, verilerin
+              aktarıldığı üçüncü kişilere bildirilmesini isteme,
+            </li>
+            <li>
+              Otomatik sistemler vasıtasıyla analiz edilmesi suretiyle
+              aleyhinize bir sonucun ortaya çıkmasına itiraz etme,
+            </li>
+            <li>
+              Kanuna aykırı işleme sebebiyle zarara uğramanız hâlinde zararın
+              giderilmesini talep etme.
+            </li>
+          </ul>
+
+          <h2>8. Haklarınızı Kullanma Yöntemi</h2>
+          <p>
+            Başvurunuzu; kimlik bilgilerinizi içeren bir dilekçeyle elden, noter
+            aracılığıyla veya
+            <strong><a href="contact.html">iletişim</a></strong> sayfamızdan
+            iletişime geçerek, güvenli elektronik imzalı olarak iletebilirsiniz.
+            Başvurularınız en geç 30 gün içinde ücretsiz olarak sonuçlandırılır.
+            Başvuru sürecinde ek bir maliyet doğması hâlinde, Kişisel Verileri
+            Koruma Kurulu tarafından belirlenen tarifedeki ücretler talep
+            edilebilir.
+          </p>
+
+          <p>
+            Detaylı bilgi ve başvuru için
+            <strong><a href="contact.html">iletişim</a></strong> sayfamızı
+            ziyaret edebilirsiniz.
+          </p>
+
+          <em
+            style="
+              display: block;
+              margin-top: 2.5rem;
+              font-style: italic;
+              color: #666;
+            "
+          >
+            İşbu Aydınlatma Metni 25 Ağustos 2025 tarihinde güncellenmiştir.
+          </em>
+        </article>
+      </div>
+    </main>
 
     <footer>
       <div class="footer-inner">

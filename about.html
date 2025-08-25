@@ -7,11 +7,13 @@
     <title>Beyaz Eşya Servisi</title>
     <style>
       :root {
-        --primary-color: #1565c0;
+        --primary: #1565c0;
         --nav-border: #0d47a1;
         --service-border: #e5e5e5;
         --hover: #ff9800;
         --black: #222;
+        --gray: #9e9e9e;
+        --blue: #0000ee;
         --white: #f1f5f9;
         --pure-white: #fff;
       }
@@ -32,6 +34,17 @@
         overflow-x: hidden;
       }
 
+      .wrapper-600 {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .wrapper-800 {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
       .wrapper-1200 {
         max-width: 1200px;
         margin: 0 auto;
@@ -41,7 +54,7 @@
       .section-divider::after {
         content: "";
         display: block;
-        width: 60%;
+        width: 100%;
         height: 2px;
         margin: 2.5rem auto 0;
         background: linear-gradient(
@@ -56,7 +69,7 @@
 
       /* ===== HEADER ===== */
       header {
-        background: var(--primary-color);
+        background: var(--primary);
         padding: 0.75rem 0;
         position: sticky;
         top: 0;
@@ -104,7 +117,7 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        background: var(--primary-color);
+        background: var(--primary);
         border: 1px solid var(--nav-border);
         min-width: 220px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -125,20 +138,68 @@
         display: block;
       }
 
-      /* ===== MAIN ===== */
       main {
         flex: 1;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        padding: 2.5rem 1rem;
+      }
+      main a {
+        font-style: italic;
+        font-weight: 600;
+      }
+      main a:hover {
+        background-color: var(--hover);
+      }
+      main a:visited {
+        color: var(--blue);
       }
 
-      .about-us {
+      /* Başlıklar ortalanır (zaten vardı) */
+      .vision h2,
+      .mission h2,
+      .about-us h2 {
         text-align: center;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      /* 1. Üst: about-us (800 px) */
+      .about-us {
+        width: 100%;
+        max-width: 800px;
+      }
+
+      /* 2. Alt: vizyon + misyon (2 sütun) */
+      .bottom-row {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3rem;
+      }
+
+      .bottom-row > section {
+        flex: 1 1 calc(50% - 1.5rem);
+        min-width: 300px;
+      }
+
+      /* Responsive: tek sütun */
+      @media (max-width: 768px) {
+        .bottom-row > section {
+          flex: 1 1 100%;
+        }
+        .about-us {
+          max-width: 600px;
+        }
       }
 
       /* FOOTER */
       footer {
-        background: var(--primary-color);
+        background: var(--primary);
         border-top: 2px solid var(--nav-border);
         padding: 1.5rem 0;
         color: var(--white);
@@ -262,18 +323,107 @@
     </header>
 
     <main id="about-us">
+      <!-- Biz Kimiz -->
       <section class="about-us section-divider">
-        <div class="wrapper-1200">
+        <div class="wrapper-800">
           <h2>Biz Kimiz?</h2>
           <p>
-            2012’den beri beyaz eşya arızalarına çözüm üretiyoruz. 10+ yıllık
-            tecrübeli teknisyen kadromuzla, garantisi bitmiş tüm marka ve
-            modellerde hızlı, ekonomik ve garantili servis sunuyoruz. Amacımız
-            müşterilerimize güvenilir teknik destek sağlamak ve cihazlarını ilk
-            gün performansına döndürmektir.
+            <strong>Beyaz Eşya Servisi</strong>, 2012 yılından bu yana sadece
+            garantisi bitmiş cihazlara yönelik
+            <em>bağımsız teknik servis hizmeti</em> sunmaktadır. 10+ yıllık
+            deneyimle büyüyen kadromuz, 35+ yetkili teknisyen ve 7 mobil servis
+            aracımızla İstanbul, Ankara, İzmir ve çevre illerde kesintisiz
+            hizmet vermektedir.
+          </p>
+          <p>
+            Kurulduğumuz günden bugüne <strong>45.000+ tamir</strong>,
+            <strong>18.000+ bakım</strong> ve
+            <strong>2.200+ montaj</strong> işlemini başarıyla tamamladık.
+            Arçelik’ten Bosch’a, Samsung’dan Siemens’e kadar 70’i aşkın markayı
+            laboratuvar ortamında test edip orijinal yedek parça ve güncel
+            yazılım çözümleriyle buluşturuyoruz. Müşterilerimizin %96’sı ilk
+            servis müdahalesinde sorunun çözüldüğünü belirtmektedir.
+          </p>
+          <p>
+            Bağımsız bir servis olarak amacımız; yetkili servis fiyatlarının
+            %20-40 altında, aynı kalite standardında ve
+            <strong>1 yıl işçilik-parça garantisi</strong> ile çözüm üretmektir.
+            “Tamir mi, yeni cihaz mı?” ikilemine düşen kullanıcılarımıza
+            ekonomik ve çevreci bir alternatif sunuyoruz.
           </p>
         </div>
       </section>
+      <div class="bottom-row">
+        <!-- Vizyon -->
+        <section class="vision">
+          <div class="wrapper-600">
+            <h2>Vizyonumuz</h2>
+            <p>
+              Türkiye’de
+              <strong
+                >garantisi bitmiş beyaz eşya kullanıcılarının ilk
+                tercihi</strong
+              >
+              olmak; kesintisiz, güvenilir ve erişilebilir teknik servis hizmeti
+              ile sektördeki “şeffaf fiyat” standartını belirlemek. Teknolojinin
+              hızla değiştiği bir çağda, ev ekonomisini koruyarak sürdürülebilir
+              tüketimi desteklemek en büyük hedefimizdir.
+            </p>
+            <p>
+              2027 yılına kadar 15 ilde aktif mobil servis ağı kurmayı, yapay
+              zekâ destekli arıza tespit sistemiyle ilk seferde çözüm oranını
+              %98’e çıkarmayı ve tamamen dijital randevu-altyapı süreçleriyle
+              müşteri memnuniyet skorumuzu 4,9/5 seviyesine taşımayı
+              hedefliyoruz.
+            </p>
+          </div>
+        </section>
+
+        <!-- Misyon -->
+        <section class="mission">
+          <div class="wrapper-600">
+            <h2>Misyonumuz</h2>
+            <p>
+              <strong>“Sürdürülebilir tamir”</strong> anlayışıyla hareket
+              ederek:
+            </p>
+            <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.9">
+              <li>
+                <strong>Müşteri Odaklılık:</strong> 60 dakika içinde arıza
+                tespiti, 24 saat içinde çözüm önerisi ve 48 saat içinde on-site
+                müdahale hedefiyle çalışıyoruz.
+              </li>
+              <li>
+                <strong>Kalite:</strong> ISO 9001:2015 süreç standartlarına
+                uygun, orijinal parça kullanımı ve 1 yıl garanti politikası ile
+                kusursuz hizmet sunuyoruz.
+              </li>
+              <li>
+                <strong>Çevre:</strong> Her tamir ile yaklaşık 120 kg CO₂
+                tasarrufu sağlayarak karbon ayak izimizi azaltıyoruz. 2025
+                sonuna kadar atık elektronik kartların %90’ını geri dönüşüm
+                tesislerine yönlendirmeyi taahhüt ediyoruz.
+              </li>
+              <li>
+                <strong>Toplum:</strong> Mesleki eğitim merkezimizde yılda 50+
+                genç teknisyene sertifikalı beyaz eşya kursu veriyoruz. Yerel
+                istihdamı güçlendirmek için tüm personelimizi bölgesel teknisyen
+                havuzundan seçiyoruz.
+              </li>
+              <li>
+                <strong>Şeffaflık:</strong> Tüm fiyatlarımız web sitemizde
+                günceldir; ek ücret, gizli komisyon veya servis çıkışı sürpriz
+                maliyet yoktur.
+              </li>
+            </ul>
+            <p>
+              “Bozuk değil, sadece bakıma ihtiyacı var” anlayışıyla,
+              kullanıcıların cihazlarını daha uzun süre güvenle
+              kullanabilmelerini sağlıyoruz.
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>

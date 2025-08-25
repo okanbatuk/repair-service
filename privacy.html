@@ -7,11 +7,12 @@
     <title>Beyaz Eşya Servisi</title>
     <style>
       :root {
-        --primary-color: #1565c0;
+        --primary: #1565c0;
         --nav-border: #0d47a1;
         --service-border: #e5e5e5;
         --hover: #ff9800;
         --black: #222;
+        --blue: #0000ee;
         --white: #f1f5f9;
         --pure-white: #fff;
       }
@@ -30,6 +31,12 @@
         flex-direction: column;
         min-height: 100vh;
         overflow-x: hidden;
+      }
+
+      .wrapper-800 {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
       }
 
       .wrapper-1200 {
@@ -56,7 +63,7 @@
 
       /* ===== HEADER ===== */
       header {
-        background: var(--primary-color);
+        background: var(--primary);
         padding: 0.75rem 0;
         position: sticky;
         top: 0;
@@ -104,7 +111,7 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        background: var(--primary-color);
+        background: var(--primary);
         border: 1px solid var(--nav-border);
         min-width: 220px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -131,9 +138,27 @@
         display: flex;
         flex-direction: column;
       }
+      main h1 {
+        color: var(--primary);
+        text-align: center;
+        padding: 1rem auto;
+      }
+      main h2 {
+        color: var(--primary);
+      }
+      main a {
+        font-style: italic;
+        color: var(--primary);
+      }
+      main a:hover {
+        background-color: var(--hover);
+      }
+      main a:visited {
+        color: var(--primary);
+      }
 
       footer {
-        background: var(--primary-color);
+        background: var(--primary);
         border-top: 2px solid var(--nav-border);
         padding: 1.5rem 0;
         color: var(--white);
@@ -261,7 +286,105 @@
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <div class="wrapper-800" style="padding: 2rem 1rem">
+        <h1>Web Sitemizin Gizlilik Politikası</h1>
+        <article
+          class="content-article"
+          style="
+            max-width: 100%;
+            font-size: 1rem;
+            padding-top: 1.5rem;
+            line-height: 1.8;
+          "
+        >
+          <p>
+            Bu gizlilik politikası, Beyaz Eşya Servisi web sitemizin
+            kullanıcıların kişisel verilerini nasıl topladığını, kullandığını ve
+            koruduğunu detaylandırmaktadır. Şeffaflık ve gizliliğinize olan
+            saygımız önceliğimizdir.
+          </p>
+
+          <h2>Kişisel Veri Toplama ve İşleme</h2>
+          <p>
+            Web sitemiz üzerinde kullanıcılarımızdan doğrudan hiçbir kişisel
+            veri toplanmamaktadır. Sitemiz bir bilgilendirme platformu olarak
+            tasarlanmıştır ve herhangi bir form, üyelik sistemi, yorum alanı,
+            online ödeme veya kişisel bilgi girişi gerektiren bir özellik
+            içermemektedir. Bu nedenle, adınız, e-posta adresiniz, telefon
+            numaranız veya IP adresiniz gibi bilgiler tarafımızca toplanmaz ve
+            işlenmez.
+          </p>
+
+          <h2>Çerezler (Cookies) ve İzleme Teknolojileri</h2>
+          <p>
+            Sitemizde analiz, reklam veya kişiselleştirme amaçlı hiçbir çerez
+            (cookie) kullanılmamaktadır. Tarayıcınıza veya cihazınıza otomatik
+            olarak yerleşen, kullanıcı davranışlarını izleyen veya profil
+            oluşturan herhangi bir izleme teknolojisi mevcut değildir. Bu
+            sayede, internet sitemizi tamamen anonim olarak ziyaret
+            edebilirsiniz.
+          </p>
+
+          <h2>Veri Güvenliği</h2>
+          <p>
+            Web sitemiz, kişisel veri toplamadığı için özel bir kişisel veri
+            güvenliği uygulamasına ihtiyaç duymamaktadır. Ancak, genel site
+            güvenliğimizi sağlamak ve kötü niyetli saldırıları önlemek amacıyla
+            standart güvenlik önlemleri alınmaktadır. Sitemiz HTTPS protokolü
+            ile şifrelenmiş olup, bu sayede tarayıcınız ile sitemiz arasındaki
+            tüm iletişim güvenli bir şekilde sağlanmaktadır.
+          </p>
+
+          <h2>Üçüncü Taraf Bağlantıları</h2>
+          <p>
+            Web sitemiz, bilgileri tamamlamak veya referans vermek amacıyla
+            harici web sitelerine bağlantılar içerebilir. Bu bağlantıların
+            yönlendirdiği sitelerin gizlilik uygulamalarından veya
+            içeriklerinden Beyaz Eşya Servisi sorumlu değildir. Harici bir
+            siteyi ziyaret ettiğinizde, ilgili sitenin kendi gizlilik
+            politikasını incelemeniz tavsiye edilir.
+          </p>
+
+          <h2>Kullanıcı Hakları ve Talepleri</h2>
+          <p>
+            Kişisel verileriniz tarafımızca toplanmadığı için, Kişisel Verilerin
+            Korunması Kanunu (KVKK) kapsamında veri sorumlusuna karşı
+            kullanabileceğiniz "kişisel verilere erişim", "düzeltme", "silme"
+            veya "işlemenin kısıtlanması" gibi haklarınız bu web sitesi özelinde
+            geçerli değildir.
+          </p>
+
+          <h2>Politika Değişiklikleri</h2>
+          <p>
+            Bu gizlilik politikası, gelecekteki yasal düzenlemelere veya site
+            yapımızdaki değişikliklere göre güncellenebilir. Yapılan tüm
+            güncellemeler bu sayfada yayımlanacak ve yürürlüğe giriş tarihi
+            belirtilecektir. Politikayı periyodik olarak gözden geçirmeniz
+            tavsiye edilir.
+          </p>
+
+          <h2>İletişim</h2>
+          <p>
+            Gizlilik politikamız veya sitemizin genel işleyişi hakkında herhangi
+            bir sorunuz veya endişeniz varsa, lütfen
+            <a href="contact.html">iletişim sayfamız</a> üzerinden bizimle
+            iletişime geçmekten çekinmeyin.
+          </p>
+
+          <em
+            style="
+              display: block;
+              margin-top: 2rem;
+              font-style: italic;
+              color: #666;
+            "
+          >
+            Son güncelleme: 25 Temmuz 2025
+          </em>
+        </article>
+      </div>
+    </main>
 
     <footer>
       <div class="footer-inner">
